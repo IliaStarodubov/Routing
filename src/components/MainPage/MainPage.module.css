@@ -1,0 +1,159 @@
+#root {
+	max-width: 1280px;
+	margin: 0 auto;
+	padding: 2rem;
+	text-align: center;
+}
+
+.app {
+	text-align: center;
+}
+
+.imgButton {
+	width: 25px;
+	height: 25px;
+	filter: invert(100%);
+}
+
+.imgButtonSort {
+	width: 50px;
+	height: 50px;
+	filter: invert(100%);
+}
+
+.imgButtonSort:hover {
+	filter: invert(20%);
+	transition: all 0.6s ease-out;
+}
+
+.buttonSort {
+	position: absolute;
+	left: 35%;
+	top: 10%;
+	background: rgb(78, 48, 150);
+}
+
+.buttonSort:hover {
+	text-decoration: none;
+	color: #423a71;
+	border: 1px solid #423a71;
+	background-color: #ffffff;
+	border-radius: 5px;
+	transition: all 0.6s ease-out;
+}
+
+.loader {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	height: 25px;
+	width: 25px;
+	border: 5px solid rgb(255, 194, 41);
+	border-radius: 50%;
+	border-left-color: transparent;
+	animation: loader 1s infinite;
+}
+
+.element {
+	box-shadow: 0px 5px 58px 7px rgba(73, 74, 75, 0.2);
+	margin: auto;
+	padding: 5px;
+	border: 1px solid #352f5b;
+	border-radius: 5px;
+	justify-content: left;
+	align-items: center;
+	display: grid;
+	gap: 30px;
+	max-width: 600px;
+	grid-template-columns: repeat(2, 285px);
+	background: #423a71;
+}
+
+.buttons {
+	text-align: right;
+}
+
+button {
+	padding: 5px;
+	background: #423a71;
+}
+
+@keyframes loader {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.form {
+	/* box-shadow: 0px 5px 58px 7px rgba(73, 74, 75, 0.2); */
+	/* margin: auto; */
+	/* padding: 5px; */
+	margin-top: 30px;
+	border: 1px solid #352f5b;
+	border-radius: 5px;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	display: grid;
+	gap: 15px;
+	background: #352f5b;
+}
+
+.labelInput {
+	background-color: #29244c;
+	border: none;
+	height: 30px;
+	width: 400px;
+	padding: 0.375rem 0.75rem;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	color: #c0c1c2;
+	/* background-clip: padding-box; */
+}
+
+.search {
+	background-color: #29244c;
+	border: none;
+	height: 45px;
+	width: 400px;
+	padding: 0.375rem 0.75rem;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	color: #c0c1c2;
+	margin-bottom: 25px;
+}
+
+.buttonAdd {
+	margin: auto;
+	border: none;
+	width: 100px;
+	background: rgb(78, 48, 150);
+	background: linear-gradient(0deg, #29244c, #423a71, 100%);
+	color: #fff;
+	overflow: hidden;
+}
+
+.buttonAdd:hover {
+	text-decoration: none;
+	color: #423a71;
+	background-color: #ffffff;
+	border-radius: 50px;
+}
+
+.buttonAdd:hover {
+	transition: all 0.6s ease-out;
+}
+
+.buttonAdd:active {
+	box-shadow:
+		4px 4px 6px 0 rgba(255, 255, 255, 0.3),
+		-4px -4px 6px 0 rgba(116, 125, 136, 0.2),
+		inset -4px -4px 6px 0 rgba(255, 255, 255, 0.2),
+		inset 4px 4px 6px 0 rgba(0, 0, 0, 0.2);
+}

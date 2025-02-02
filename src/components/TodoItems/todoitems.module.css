@@ -1,0 +1,51 @@
+.element {
+	box-shadow: 0px 5px 58px 7px rgba(73, 74, 75, 0.2);
+	margin: auto;
+	padding: 5px;
+	border: 1px solid #352f5b;
+	border-radius: 5px;
+	justify-content: left;
+	align-items: center;
+	display: flex;
+	gap: 30px;
+	width: 600px;
+	height: 43px;
+	background: #423a71;
+	color: white;
+}
+
+.span {
+	margin-left: 20px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.element:hover {
+	color: #423a71;
+	background: white;
+	transition: all 0.5s ease-out;
+}
+
+.buttons {
+	text-align: right;
+}
+
+.imgButton {
+	width: 25px;
+	height: 25px;
+	filter: invert(100%);
+}
+
+.labelInput {
+	background-color: #29244c;
+	border: none;
+	height: 30px;
+	width: 400px;
+	padding: 0.375rem 0.75rem;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	color: #c0c1c2;
+	/* background-clip: padding-box; */
+}

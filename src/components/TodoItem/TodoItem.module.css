@@ -1,0 +1,95 @@
+.element {
+	box-shadow: 0px 5px 58px 7px rgba(73, 74, 75, 0.2);
+	margin: auto;
+	margin-top: 150px;
+	padding: 5px;
+	border: 1px solid #352f5b;
+	border-radius: 5px;
+	justify-content: left;
+	align-items: center;
+	display: grid;
+	gap: 30px;
+	width: 600px;
+	height: 150px;
+	grid-template-columns: repeat(2, 285px);
+	background: #423a71;
+	color: white;
+}
+
+.buttons {
+	text-align: right;
+}
+
+.imgButton {
+	width: 25px;
+	height: 25px;
+	filter: invert(100%);
+}
+
+.labelInput {
+	background-color: #29244c;
+	border: none;
+	height: 30px;
+	width: 400px;
+	padding: 1.1rem 0.75rem;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	color: #c0c1c2;
+}
+
+.span {
+	margin-left: 20px;
+}
+
+.loader {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	height: 25px;
+	width: 25px;
+	border: 5px solid rgb(255, 194, 41);
+	border-radius: 50%;
+	border-left-color: transparent;
+	animation: loader 1s infinite;
+}
+
+@keyframes loader {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.app {
+	text-align: center;
+}
+
+.imgButtonBack {
+	width: 50px;
+	height: 50px;
+}
+
+.imgButtonBack:hover {
+	filter: invert(100%);
+	transition: all 0.6s ease-out;
+}
+
+.buttonBack {
+	position: absolute;
+	left: 35%;
+	top: 10%;
+	background: rgb(255, 255, 255);
+}
+
+.buttonBack:hover {
+	text-decoration: none;
+	color: #423a71;
+	border: 1px solid #726a9f;
+	background-color: rgb(78, 48, 150);
+	border-radius: 5px;
+	transition: all 0.6s ease-out;
+}
