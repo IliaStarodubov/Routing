@@ -1,22 +1,14 @@
 import { useNavigate, useParams } from 'react-router-dom';
-import styles from './TodoItem.module.css';
+import styles from './TodoPage.module.css';
 import { useEffect, useState } from 'react';
 
-export const TodoItem = ({ requestEditTodo, requestDeleteTodo, isRefreshTodos }) => {
+export const TodoPage = () => {
 	const [todo, setTodo] = useState({});
 	const [isLoading, setIsLoading] = useState(true);
 	const [isEdit, setIsEdit] = useState(false);
 	const [newValue, setNewValue] = useState(todo.title);
-
+	const { id } = useParams();
 	const navigate = useNavigate();
-	const params = useParams();
-
-	useEffect(() => {
-		fetch(`http://localhost:3000/todos/${params.id}`)
-			.then((loadedData) => loadedData.json())
-			.then((loadedTodo) => setTodo(loadedTodo))
-			.finally(() => setIsLoading(false));
-	}, [params.id, isRefreshTodos, navigate]);
 
 	const src = isEdit ? '/src/assets/check-circle.svg' : '/src/assets/pencil-square.svg';
 
@@ -34,13 +26,46 @@ export const TodoItem = ({ requestEditTodo, requestDeleteTodo, isRefreshTodos })
 
 	const readMode = <span className={styles.span}>{todo.title}</span>;
 
+	const refetch = () => {
+		fetch(`http://localhost:3000/todos/${id}`)
+			.then((loadedData) => loadedData.json())
+			.then((loadedTodo) => setTodo(loadedTodo))
+			.finally(() => setIsLoading(false));
+	};
+
+	useEffect(() => {
+		refetch();
+	}, []);
+
+	const requestEditTodo = (title) => {
+		fetch(`http://localhost:3000/todos/${id}`, {
+			method: 'PUT',
+			headers: { 'Content-Type': 'application/json;charset=utf-8' },
+			body: JSON.stringify({
+				title,
+			}),
+		}).then(() => refetch());
+	};
+
 	const onConfirmEditClick = () => {
 		if (isEdit) {
-			requestEditTodo(params.id, newValue);
+			requestEditTodo?.(newValue);
 		}
 
 		setNewValue('');
 		setIsEdit(!isEdit);
+	};
+
+	const requestDeleteTodo = () => {
+		setIsLoading(true);
+
+		fetch(`http://localhost:3000/todos/${id}`, {
+			method: 'DELETE',
+		})
+			.then(() => {
+				navigate('/');
+			})
+			.finally(() => setIsLoading(false));
 	};
 
 	return (
@@ -54,13 +79,18 @@ export const TodoItem = ({ requestEditTodo, requestDeleteTodo, isRefreshTodos })
 				/>
 			</button>
 			<div className={styles.element}>
-				{isLoading ? <div className={styles.loader}></div> : null}
-				{isEdit ? editMode : readMode}
+				{isLoading ? (
+					<div className={styles.loader}></div>
+				) : isEdit ? (
+					editMode
+				) : (
+					readMode
+				)}
 				<div className={styles.buttons}>
 					<button onClick={onConfirmEditClick}>
 						<img className={styles.imgButton} src={src} alt="edit" />
 					</button>
-					<button onClick={() => requestDeleteTodo(params.id)}>
+					<button onClick={requestDeleteTodo}>
 						<img
 							className={styles.imgButton}
 							src="/src/assets/trash.svg"
